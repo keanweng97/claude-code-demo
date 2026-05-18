@@ -39,7 +39,7 @@ Key detail: `AssetService` uses `window.g_ck` as the CSRF token (`X-UserToken` h
 
 ## ServiceNow-specific conventions
 
-- The app scope prefix is `x_640383_asset_tra` — all table names and sys_ids use this prefix.
+- The app scope prefix is `x_640383_asset_tra` — scoped artifact names such as table names use this prefix, but ServiceNow `sys_id` values are GUID-like identifiers and do not.
 - `Now.ID['some-key']` in `.now.ts` files must be registered via `npm run transform` before building.
 - Business rule scripts receive `(current, previous)` — these are `GlideRecord`-like objects, not plain JS objects.
 - Asset tags are auto-generated (format: `<TYPE_PREFIX><4-digit-number>`, e.g., `COM0001`) if not provided; manual tags must match `/^[A-Z0-9]+$/`.
