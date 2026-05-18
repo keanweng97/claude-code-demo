@@ -1,0 +1,6 @@
+{
+  "scope": "x_640383_asset_tra",
+  "scopeId": "7e46da3fc3388350dfb5973ed40131f8",
+  "name": "Asset Tracki",
+  "tsconfigPath": "./src/server/tsconfig.json"
+}
