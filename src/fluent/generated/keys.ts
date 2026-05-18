@@ -9,6 +9,10 @@ declare global {
                         table: 'sys_script'
                         id: '1330ec4cffbc47c2a388b318e9b11f2a'
                     }
+                    'asset-health-monitor-br': {
+                        table: 'sys_script'
+                        id: '4c8c38942d51463f9dbc6eb8a32d9e64'
+                    }
                     'asset-validation-br': {
                         table: 'sys_script'
                         id: '9148f882b30d47c582bfaa6eb3cc16bf'
@@ -20,6 +24,10 @@ declare global {
                     package_json: {
                         table: 'sys_module'
                         id: 'a462826f6dbe4714851afcf999ddce00'
+                    }
+                    'src_server_asset-health_js': {
+                        table: 'sys_module'
+                        id: 'a9cf0f3e708342c8a4c6a38103887682'
                     }
                     'src_server_asset-validation_js': {
                         table: 'sys_module'
