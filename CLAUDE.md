@@ -26,7 +26,7 @@ TypeScript files that use Fluent SDK APIs to declare ServiceNow artifacts. These
 - `tables/` — Table schema definitions using `Table`, `StringColumn`, `ReferenceColumn`, etc. from `@servicenow/sdk/core`
 - `business-rules/` — Business rule wiring using `BusinessRule({...})` — connects trigger conditions to server-side functions
 - `ui-pages/` — UI page declarations using `UiPage({...})` — registers the React app as a ServiceNow page at a `.do` endpoint
-- `index.now.ts` — Entry point that aggregates all Fluent definitions; add new `.now.ts` files here
+- `index.now.ts` — currently a placeholder file; Fluent definitions are declared in `.now.ts` files under this tree
 - `generated/keys.ts` — Auto-generated ID registry for `Now.ID['...']` references; do not edit manually
 
 ### `src/server/` — Server-side business logic
@@ -35,7 +35,7 @@ Plain JavaScript/TypeScript executed server-side on ServiceNow. Imports from `@s
 ### `src/client/` — React frontend
 A React 18 SPA bundled by `now-sdk build` and embedded in the `UiPage` defined in `src/fluent/ui-pages/`. Communicates with ServiceNow via the Table REST API (`/api/now/table/...`).
 
-Key detail: `AssetService` uses `window.g_ck` as the CSRF token (`X-UserToken` header) — this global is injected by ServiceNow when the page loads. All REST responses use `sysparm_display_value=all` so fields return `{ value, display_value }` objects; use `extractValue()` / `extractDisplayValue()` helpers on `AssetService` to unwrap them.
+Key detail: `AssetService` uses `window.g_ck` as the CSRF token (`X-UserToken` header) — this global is injected by ServiceNow when the page loads. `list()` and `getById()` request `sysparm_display_value=all`, while `create()`/`update()` do not; callers should handle both `{ value, display_value }` objects and primitive values via `extractValue()` / `extractDisplayValue()`.
 
 ## ServiceNow-specific conventions
 
