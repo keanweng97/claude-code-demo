@@ -32,6 +32,8 @@ export function monitorAssetHealth(current, previous) {
     }
 
     // Increment claude_count to track how many times this record has been saved
-    const currentCount = parseInt(current.getValue('claude_count') || '0')
+    const rawCount = current.getValue('claude_count')
+    const parsedCount = parseInt(rawCount || '0', 10)
+    const currentCount = Number.isNaN(parsedCount) ? 0 : parsedCount
     current.setValue('claude_count', String(currentCount + 1))
 }
