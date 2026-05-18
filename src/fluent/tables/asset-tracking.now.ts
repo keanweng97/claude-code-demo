@@ -88,9 +88,13 @@ export const x_640383_asset_tra_asset = Table({
     is_critical: BooleanColumn({
       label: 'Critical Asset'
     }),
-    notes: StringColumn({ 
-      label: 'Notes', 
-      maxLength: 1000 
+    notes: StringColumn({
+      label: 'Notes',
+      maxLength: 1000
+    }),
+    claude_count: StringColumn({
+      label: 'Claude Count',
+      maxLength: 255
     })
   },
   display: 'asset_name',
